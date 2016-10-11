@@ -1,6 +1,6 @@
-j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Release\AllCopy.exe.config
-j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Release\AllCopy.exe
-j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Release\AllCopy.pdb
-j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\obj\Release\AllCopy.exe
-j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\obj\Release\AllCopy.pdb
 J:\Documents\Visual Studio 2015\Projects\AllCopy\AllCopy\obj\Release\AllCopy.csprojResolveAssemblyReference.cache
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Release\DefCopy.exe.config
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Release\DefCopy.exe
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Release\DefCopy.pdb
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\obj\Release\DefCopy.exe
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\obj\Release\DefCopy.pdb

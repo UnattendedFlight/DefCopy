@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AllCopy")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DefCopy")]
+[assembly: AssemblyDescription("This is a C# project made to copy a large amount of files over my local internet at no faster speed than doing it any other copying software.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AllCopy")]
+[assembly: AssemblyCompany("Sonder")]
+[assembly: AssemblyProduct("DefCopy")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

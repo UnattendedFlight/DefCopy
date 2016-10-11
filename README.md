@@ -1,4 +1,5 @@
 # DefCopy
+I know it says AllCopy, and that's because AllCopy was the first project name. But i changed it and am to lazy to change every file/foldername.
 
 This is a C# project made to copy a large amount of files over my local internet at no faster speed than doing it any other copying software.
 

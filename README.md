@@ -7,6 +7,9 @@ This is a C# project made to copy a large amount of files over my local internet
 
 Just download the C# Installer and follow the instructions to install the newest version.
 
+You are temporarily required to manually download winrar to default directory if you have not already.
+This is due to Update v1.2.7§3
+
 # You can find the latest release for the installer [here](https://github.com/UnattendedFlight/DefCopy/releases/latest "Sonder's latest release")
 
 ## Usage

@@ -34,6 +34,17 @@ e.g
 
 ## History
 
+v1.2.7
+- Added function to show how many files are being copie
+- Added function that shows file sizes.
+- Added function to unrar any rar files copied (WARNING: THIS EXTRACTS ALL ALREADY EXISTING RAR FILES IN DESTINATION FOLDER) (Works with .r03 etc.
+- Added better counting and file handling
+- Added a short beep when the operation is finished
+- Added timers to accurately show operation time.
+- Added color and stuff
+- Added minor animation when extracting
+- Added better recognition of pre-existing files
+
 v1.0.0
 - Initial Release
 

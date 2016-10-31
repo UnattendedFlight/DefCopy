@@ -14,6 +14,8 @@ namespace ConsoleApplication12
 {
     class Program
     {
+        
+        static string locTemp = Path.GetTempPath() + @"\";
         string pathFrom = Directory.GetCurrentDirectory();
         string pathTo = @"J:\G\Flm";
         static string LogText = string.Empty;
@@ -100,22 +102,22 @@ namespace ConsoleApplication12
                         pathT = k;
                         if (i == 0)
                         {
-                            if (File.Exists("from" + o + ".txt"))
+                            if (File.Exists(locTemp + "from" + o + ".txt"))
                             {
                                 o++;
                             }
                             pathF = k;
-                            File.WriteAllText("from" + o + ".txt", k);
+                            File.WriteAllText(locTemp + "from" + o + ".txt", k);
                             i++;
                             o++;
                         }
                         else if (i == 1)
                         {
-                            if (File.Exists("to" + o + ".txt"))
+                            if (File.Exists(locTemp + "to" + o + ".txt"))
                             {
                                 o++;
                             }
-                            File.WriteAllText("to" + o + ".txt", k);
+                            File.WriteAllText(locTemp + "to" + o + ".txt", k);
                             pathT = k;
                             i--;
                             o--;
@@ -135,9 +137,9 @@ namespace ConsoleApplication12
             int count = 0;
             while (rrUno == 0)
             {
-                if (File.Exists("from" + readUno + ".txt"))
+                if (File.Exists(locTemp + "from" + readUno + ".txt"))
                 {
-                    string pathFUno = File.ReadAllText("from" + readUno + ".txt");
+                    string pathFUno = File.ReadAllText(locTemp + "from" + readUno + ".txt");
                     readUno++;
                     
                     System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(pathFUno);
@@ -157,12 +159,12 @@ namespace ConsoleApplication12
             System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
             while ("l" == "l")
             {
-                if (File.Exists("from" + read + ".txt"))
+                if (File.Exists(locTemp + "from" + read + ".txt"))
                 {
-                    string pathF = File.ReadAllText("from" + read + ".txt");
+                    string pathF = File.ReadAllText(locTemp + "from" + read + ".txt");
                     read++;
                     rr++;
-                    string pathT = File.ReadAllText("to" + read + ".txt");
+                    string pathT = File.ReadAllText(locTemp + "to" + read + ".txt");
                     System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(pathF);
                     count = dir.GetFiles().Length;
                     Console.WriteLine();
@@ -452,7 +454,7 @@ namespace ConsoleApplication12
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Cleaning up..");
             Thread.Sleep(1700);
-            string rootFolderPath = Directory.GetCurrentDirectory();
+            string rootFolderPath = locTemp + ;
             string filesToDelete = @"from*.txt";
             string[] fileList = System.IO.Directory.GetFiles(rootFolderPath, filesToDelete);
             foreach (string file in fileList)

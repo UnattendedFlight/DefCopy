@@ -77,7 +77,7 @@ namespace ConsoleApplication12
             int read = 1;
             string pathFrom;
             string pathTo;
-            char[] delimiterChars = { ' ', ';' };
+            char[] delimiterChars = { ';' };
             string text = File.ReadAllText("copy.txt");
             System.Console.WriteLine("Original text: '{0}'", text);
             string[] words = text.Split(delimiterChars);

@@ -14,8 +14,8 @@ namespace ConsoleApplication12
 {
     class Program
     {
-        
-        static string locTemp = Path.GetTempPath() + @"\";
+
+        static string locTemp = Path.GetTempPath();
         string pathFrom = Directory.GetCurrentDirectory();
         string pathTo = @"J:\G\Flm";
         static string LogText = string.Empty;
@@ -47,7 +47,8 @@ namespace ConsoleApplication12
                     if (!File.Exists("copy.txt"))
                     {
                         File.AppendAllText("copy.txt", input);
-                    } else
+                    }
+                    else
                     {
                         File.AppendAllText("copy.txt", ";" + input);
                     }
@@ -59,7 +60,7 @@ namespace ConsoleApplication12
                         output = Console.ReadLine();
                         defOut = output;
                         File.AppendAllText("copy.txt", ";" + output);
-                        
+
                         if (re == 1)
                         {
                             Console.WriteLine("Use {0} as output on all copies?", re);
@@ -68,13 +69,14 @@ namespace ConsoleApplication12
                             string yn = Console.ReadLine();
                             if (yn == "y") { ynd = true; }
                         }
-                    } else if (ynd == true)
+                    }
+                    else if (ynd == true)
                     {
                         File.AppendAllText("copy.txt", ";" + defOut);
                     }
                     re++;
                 }
-                
+
             }
             int read = 1;
             string pathFrom;
@@ -128,7 +130,7 @@ namespace ConsoleApplication12
                 }
             }
             read = 1;
-            
+
             Console.Clear();
             Console.WriteLine();
             int copies = words.Length / 2;
@@ -141,7 +143,7 @@ namespace ConsoleApplication12
                 {
                     string pathFUno = File.ReadAllText(locTemp + "from" + readUno + ".txt");
                     readUno++;
-                    
+
                     System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(pathFUno);
                     count = count + dir.GetFiles().Length;
                 }
@@ -151,11 +153,11 @@ namespace ConsoleApplication12
                     break;
                 }
             }
-            
-                Console.WriteLine("{0} files will be copied", count);
+
+            Console.WriteLine("{0} files will be copied", count);
             read = 1;
             int rr = 0;
-            
+
             System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
             while ("l" == "l")
             {
@@ -196,9 +198,10 @@ namespace ConsoleApplication12
                     Console.WriteLine();
                     Console.Write("Copy of {0} took ", pathRec);
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("{0} seconds", answer);                    
+                    Console.Write("{0} seconds", answer);
                     Console.WriteLine();
-                } else
+                }
+                else
                 {
                     if (pathToRec == null)
                     {
@@ -229,7 +232,7 @@ namespace ConsoleApplication12
                     Console.ReadKey();
                     break;
                 }
-                
+
             }
             /*while ("k" == "k")
             { 
@@ -291,7 +294,7 @@ namespace ConsoleApplication12
             int rr = 0;
             int count = 0;
             while ("l" == "l")
-            {  
+            {
                 if (File.Exists("from" + read + ".txt"))
                 {
                     string pathF = File.ReadAllText("from" + read + ".txt");
@@ -310,7 +313,7 @@ namespace ConsoleApplication12
                     System.Diagnostics.Stopwatch ew = System.Diagnostics.Stopwatch.StartNew();
 
                     // --------------------------------------------------------------------------------
-                    
+
                     string source = pathNew;
                     DirectoryInfo dire = new DirectoryInfo(pth);
                     bool k = false;
@@ -319,30 +322,30 @@ namespace ConsoleApplication12
                         try
                         {
                             foreach (string d in Directory.GetDirectories(pth))
-                             {
+                            {
                                 foreach (string f in Directory.GetFiles(d, "*.rar"))
                                 {
-                                        source = f;
+                                    source = f;
                                     string sourcealt = d;
                                     //Console.WriteLine(d);
                                     //Console.WriteLine(f);
                                     Console.ForegroundColor = ConsoleColor.Gray;
-                                        Console.WriteLine();
-                                        string time = DateTime.Now.ToString("HH:mm:ss");
-                                        Console.Write("[{0}]", time);
-                                        Console.ForegroundColor = ConsoleColor.Magenta;
-                                        Console.Write(" --> ");
-                                        Console.ForegroundColor = ConsoleColor.White;
-                                        Console.Write("Extracting files '");
-                                        Console.ForegroundColor = ConsoleColor.Green;
-                                        Console.Write(f);
-                                        Console.ForegroundColor = ConsoleColor.White;
-                                        Console.Write("'... ");
-                                        Process myProcess = new Process();
-                                        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-                                        myProcess.StartInfo.CreateNoWindow = false;
-                                        myProcess.StartInfo.UseShellExecute = false;
-                                        myProcess.StartInfo.FileName = "cmd.exe";
+                                    Console.WriteLine();
+                                    string time = DateTime.Now.ToString("HH:mm:ss");
+                                    Console.Write("[{0}]", time);
+                                    Console.ForegroundColor = ConsoleColor.Magenta;
+                                    Console.Write(" --> ");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Console.Write("Extracting files '");
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(f);
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Console.Write("'... ");
+                                    Process myProcess = new Process();
+                                    myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                                    myProcess.StartInfo.CreateNoWindow = false;
+                                    myProcess.StartInfo.UseShellExecute = false;
+                                    myProcess.StartInfo.FileName = "cmd.exe";
                                     string pthso = sourcealt;
                                     string pfiles = "C:\\Program Files\\WinRAR\\winrar.exe";
                                     string command = "/c \"\"" + pfiles + "\"\" x " + f + " *.* " + pthso;
@@ -372,16 +375,17 @@ namespace ConsoleApplication12
                                         file.Delete();
                                     }
                                 }
-                                }
+                            }
 
-                            } catch (System.Exception excpt)
+                        }
+                        catch (System.Exception excpt)
                         {
                             Console.WriteLine(excpt.Message);
                         }
                         k = true;
                         break;
                     }
-                    
+
                     /*foreach (FileInfo file in dire.GetFiles("*.rar"))
                     {
                         Console.ForegroundColor = ConsoleColor.Gray;
@@ -430,7 +434,8 @@ namespace ConsoleApplication12
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
                         return null;
-                    } else
+                    }
+                    else
                     {
                         Console.Write("Extraction of {0} files took ", count);
                         Console.ForegroundColor = ConsoleColor.White;
@@ -438,7 +443,7 @@ namespace ConsoleApplication12
                         Console.WriteLine();
                         return null;
                     }
-                    
+
                 }
                 else
                 {
@@ -447,14 +452,14 @@ namespace ConsoleApplication12
                 return "0";
             }
             return "0";
-            
+
         }
         static string CleanUp()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Cleaning up..");
             Thread.Sleep(1700);
-            string rootFolderPath = locTemp + ;
+            string rootFolderPath = locTemp;
             string filesToDelete = @"from*.txt";
             string[] fileList = System.IO.Directory.GetFiles(rootFolderPath, filesToDelete);
             foreach (string file in fileList)
@@ -550,7 +555,7 @@ namespace ConsoleApplication12
             {
                 Directory.CreateDirectory(destDirName);
             }
-            
+
             // Get the files in the directory and copy them to the new location.
             FileInfo[] files = dir.GetFiles();
             foreach (FileInfo file in files)

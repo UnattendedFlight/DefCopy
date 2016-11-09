@@ -1,1 +1,6 @@
-j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Debug\AllCopy.exe.config
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Debug\DefCopy.exe.config
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Debug\DefCopy.exe
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\bin\Debug\DefCopy.pdb
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\obj\Debug\AllCopy.csprojResolveAssemblyReference.cache
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\obj\Debug\DefCopy.exe
+j:\documents\visual studio 2015\Projects\AllCopy\AllCopy\obj\Debug\DefCopy.pdb

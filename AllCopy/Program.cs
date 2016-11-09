@@ -14,7 +14,7 @@ namespace ConsoleApplication12
 {
     class Program
     {
-
+        static bool move = false;
         static string locTemp = Path.GetTempPath();
         string pathFrom = Directory.GetCurrentDirectory();
         string pathTo = @"J:\G\Flm";
@@ -32,8 +32,33 @@ namespace ConsoleApplication12
                 string kfc = "tasty";
                 string input;
                 bool ynd = false;
+                bool ynds = false;
                 string output;
                 string defOut = @"J:\G\Flm";
+                Console.WriteLine("Is this a move job? (Y/N)");
+                while (ynds == false)
+                {
+                    ConsoleKeyInfo choice = Console.ReadKey();
+                    switch (choice.Key)
+                    {
+                        case ConsoleKey.Y:
+                            ynds = true;
+                            move = true;
+                            File.AppendAllText(locTemp + "move.c", "y");
+                            break;
+                        case ConsoleKey.N:
+                            ynds = true;
+                            if (File.Exists(locTemp + "move.c"))
+                            {
+                                File.Delete(locTemp + "move.c");
+                            }
+                            move = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                
                 while (kfc == "tasty")
                 {
                     Console.Clear();
@@ -65,9 +90,18 @@ namespace ConsoleApplication12
                         {
                             Console.WriteLine("Use {0} as output on all copies?", re);
                             Console.WriteLine("Y/N");
-
-                            string yn = Console.ReadLine();
-                            if (yn == "y") { ynd = true; }
+                            ConsoleKeyInfo choice = Console.ReadKey();
+                            switch (choice.Key)
+                            {
+                                case ConsoleKey.Y:
+                                    ynd = true;
+                                    break;
+                                case ConsoleKey.N:
+                                    ynd = false;
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
                     else if (ynd == true)
@@ -88,6 +122,10 @@ namespace ConsoleApplication12
             System.Console.WriteLine("{0} words in text:", words.Length);
             if (File.Exists("copy.txt"))
             {
+                if (File.Exists(locTemp + "move.c"))
+                {
+                    move = true;
+                }
                 string k;
                 int i = 0;
                 int o = 1;
@@ -153,8 +191,15 @@ namespace ConsoleApplication12
                     break;
                 }
             }
-
-            Console.WriteLine("{0} files will be copied", count);
+            if (move == true)
+            {
+                Console.WriteLine("{0} files will be moved", count);
+            }
+            else if (move == false)
+            {
+                Console.WriteLine("{0} files will be copied", count);
+            }
+            
             read = 1;
             int rr = 0;
 
@@ -171,7 +216,15 @@ namespace ConsoleApplication12
                     count = dir.GetFiles().Length;
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Copy job: {0}/{1} containing {2} files..", rr, copies, count);
+                    if (move == true)
+                    {
+                        Console.WriteLine("Moving job: {0}/{1} containing {2} files..", rr, copies, count);
+                    }
+                    else if (move == false)
+                    {
+                        Console.WriteLine("Copy job: {0}/{1} containing {2} files..", rr, copies, count);
+                    }
+                    
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine();
                     string pathNew = new DirectoryInfo(pathF).Name;
@@ -196,7 +249,15 @@ namespace ConsoleApplication12
                                     t.Seconds,
                                     t.Milliseconds);
                     Console.WriteLine();
-                    Console.Write("Copy of {0} took ", pathRec);
+                    if (move == true)
+                    {
+                        Console.Write("Move of {0} took ", pathRec);
+                    }
+                    else if (move == false)
+                    {
+                        Console.Write("Copy of {0} took ", pathRec);
+                    }
+                    
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("{0} seconds", answer);
                     Console.WriteLine();
@@ -225,7 +286,15 @@ namespace ConsoleApplication12
                                     t.Seconds,
                                     t.Milliseconds);
                     Console.WriteLine();
-                    Console.Write("Copy took a total of ");
+                    if (move == true)
+                    {
+                        Console.Write("Move took a total of ");
+                    }
+                    else if (move == false)
+                    {
+                        Console.Write("Copy took a total of ");
+                    }
+                    
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("{0} seconds", answer);
                     Console.WriteLine();
@@ -571,7 +640,15 @@ namespace ConsoleApplication12
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.Write(" --> ");
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("Copying file '");
+                    if (move == true)
+                    {
+                        Console.Write("Moving file '");
+                    }
+                    else if (move == false)
+                    {
+                        Console.Write("Copying file '");
+                    }
+                    
                     Console.ForegroundColor = ConsoleColor.Green;
                     //Console.Write(temppath);
                     Console.Write(file.Name);
@@ -579,6 +656,8 @@ namespace ConsoleApplication12
                     var spacer = GetFileSizeOnDisk(alttemppath);
                     var space = SizeSuffix(spacer);
                     Console.Write("'... ({0}/{1}) | {2}", fcount, dcount, space);
+                    int norX = Console.CursorLeft;
+                    int norY = Console.CursorTop;
                     //if (!File.Exists("sizes.txt"))
                     //{
                     //    StreamWriter de = new StreamWriter("sizes.txt");
@@ -591,7 +670,16 @@ namespace ConsoleApplication12
                     //AmountCopied = AmountCopied + spacer;
                     //d.WriteLine(AmountCopied);
                     //Console.WriteLine(AmountCopied);
-                    file.CopyTo(temppath, false);
+                    if (move == true)
+                    {
+                        file.MoveTo(temppath);
+                    } else if (move == false)
+                    {
+                        file.CopyTo(temppath, false);
+                    }
+                    Console.SetCursorPosition(100, norY-12);
+                    Console.Write("                     ", fcount, dcount, space);
+                    Console.SetCursorPosition(norX, norY);
 
                     fcount++;
                     count--;

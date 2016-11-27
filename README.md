@@ -37,8 +37,22 @@ e.g
 
 ## History
 
-v1.2.7
-- Added function to show how many files are being copie
+**v1.2.7C**
+- Added functionality to show progress in the taskbar.
+- **(In-code)** Added goto's.
+- Added file and folder checks.
+- Improved ability to move files.
+- Better counting of files and info shown to users. Now counts folders as well.
+- Fixed automatic unrar not really working
+- Added a catch for file not found exception.
+
+**v1.2.7B**
+- Added better recognition of pre-existing files
+- Added better counting and file handling
+- Added moving capabilities
+
+**v1.2.7**
+- Added function to show how many files are being copied
 - Added function that shows file sizes.
 - Added function to unrar any rar files copied (WARNING: THIS EXTRACTS ALL ALREADY EXISTING RAR FILES IN DESTINATION FOLDER) (Works with .r03 etc.
 - Added better counting and file handling
@@ -48,7 +62,7 @@ v1.2.7
 - Added minor animation when extracting
 - Added better recognition of pre-existing files
 
-v1.0.0
+**v1.0.0**
 - Initial Release
 
 ## Credits
